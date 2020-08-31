@@ -9,12 +9,11 @@ class Solution:
         tempList = []
             
         def helper(root):
-            if root:
+            if root and len(tempList)<k:
                 helper(root.left)
                 tempList.append(root.val)
                 helper(root.right)
-        
+                
         helper(root)
         
-        print(tempList)
         return tempList[k-1]
