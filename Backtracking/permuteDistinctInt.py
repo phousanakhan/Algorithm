@@ -4,11 +4,8 @@ class Solution:
 
         def helper(List: list, startingIndex: int, endingIndex: int):
             if startingIndex == endingIndex:
-                tempList = []
-                for value in List:
-                    tempList.append(value)
-                finalList.append(tempList)
-                    
+                finalList.append(List[:]) 
+                #List[:] to make a copy; else, it will be a reference
 
             else:
                 for i in range(startingIndex, endingIndex+1):
