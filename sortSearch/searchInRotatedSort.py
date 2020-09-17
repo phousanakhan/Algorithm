@@ -3,10 +3,9 @@ class Solution:
         def helper(nums, low, high, target):
             first = nums[0]
             if high >= low:
-                mid = (low + high)//2
-                if nums[mid] == target:
-                    return mid
-                
+                mid = low + (high-low) // 2;
+		if nums[mid] == target:
+		    return mid 
                 amBig = (nums[mid] >= first)
                 targetBig = (target >= first)
                 if amBig == targetBig: #target in before pivot list
