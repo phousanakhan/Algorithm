@@ -51,48 +51,4 @@ class Solution:
                     self.maxFinal = max(self.maxFinal, self.maxArea)
                     self.maxArea = 0
         return self.maxFinal
-        class Solution:
-    def largestIsland(self, grid: List[List[int]]) -> int:
-        '''
-        for each 0's:
-            change 0 --> 1
-            get maxCurArea #can have multiple island; so get maxCurArea
-            maxArea = max(maxArea, maxCurArea)
-        '''
-
-        self.curAreaCounter = 0
-        globalMaxArea = 0
-        allOne = 0
-        totalLength = 0
-    
-        def getMaxCurArea(index1, index2, grid):
-            if index1 < 0 or index1 >= len(grid) or index2 < 0 or index2 >= len(grid[0]) or grid[index1][index2] == 0:
-                return
-            grid[index1][index2] = 0
-            self.curAreaCounter += 1
-            getMaxCurArea(index1, index2-1, grid)
-            getMaxCurArea(index1, index2+1, grid)
-            getMaxCurArea(index1-1, index2, grid)
-            getMaxCurArea(index1+1, index2, grid)
-            
-
-        for index1, row in enumerate(grid):
-            for index2, value in enumerate(row):
-                totalLength += 1
-                if grid[index1][index2] == 0:
-                    grid[index1][index2] = 1
-                    getMaxCurArea(index1, index2, grid)
-                    grid[index1][index2] = 0
-                    globalMaxArea = max(globalMaxArea, self.curAreaCounter)
-                    self.curAreaCounter = 0
-                else:
-                    allOne += 1
-        
-        
-        if totalLength == allOne:
-            return allOne
-        else:
-            return globalMaxArea
-        
-        
-                    
+  
