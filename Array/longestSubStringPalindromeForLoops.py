@@ -10,7 +10,7 @@ class Solution:
         longest_palindrome_str = ""
         longest_palindrome_len = 0
         for mid in range(0, len(s)):
-            for j in range(0, len(s)):
+            for j in range(0, len(s)): #not range(1, len(s)) because we consider a character by itself as a palindrome. E.g, "ab" --> "a"
                 left = mid - j
                 right = mid + j
                 if left < 0 or right >= len(s) or s[left] != s[right]:
@@ -25,7 +25,7 @@ class Solution:
         #if palindrome itself is even (remember; not s is even)
         for mid in range(0, len(s)):
             for j in range(1, len(s)):
-                left = mid - j + 1
+                left = mid - j + 1 #abba --> b mid b
                 right = mid + j 
                 if left < 0 or right >= len(s) or s[left] != s[right]:
                     break
