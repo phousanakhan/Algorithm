@@ -39,5 +39,4 @@ class Solution:
             #3->5
             preMove.next = toDelete.next
         return head
-
 #Python copy assignments are essentially pointers to the reference (in this case head). So changing slow, also changes head. However since the original head pointer is to its 'head', we can simply return that as desired with the reflected changes from mutating slow. 
